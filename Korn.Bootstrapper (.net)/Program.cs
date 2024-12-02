@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.Diagnostics;
 
 public class Program
 {
@@ -12,6 +11,7 @@ public class Program
 
     void Main()
     {
-        File.WriteAllText(@"C:\d.txt", DateTime.Now.ToString());
+        File.WriteAllText(@"C:\d.txt", Process.GetCurrentProcess().Id + " " + DateTime.Now);
+        Console.WriteLine("Hello, World!");
     }
 }
