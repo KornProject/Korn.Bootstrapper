@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-public class Program
+﻿unsafe class Program
 {
     public static int ExternalMain(nint args, int argLength)
     {
@@ -13,5 +10,6 @@ public class Program
     void Main()
     {
         File.WriteAllText(@"C:\d.txt", DateTime.Now.ToString());
+        Console.WriteLine("Injected!");
     }
 }
