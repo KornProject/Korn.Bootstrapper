@@ -1,15 +1,32 @@
-﻿unsafe class Program
+﻿/*
+ *  IMPORTANT.
+ *  DO NOT USE OTHER KORN COMPONENTS IN THIS CLASS.
+*/
+
+using System.Reflection;
+
+string KornPath = Environment.GetEnvironmentVariable("KORN_PATH", EnvironmentVariableTarget.Machine)!;
+    
+LoadSharedLibraries();
+new EntryPoint().Main();
+
+void LoadSharedLibraries()
 {
-    public static int ExternalMain(nint args, int argLength)
+    var libraries = Path.Combine(KornPath, @"Data\Libraries\.net8");
+    var files = Directory.GetFiles(libraries);
+    foreach (var file in files)
     {
-        var instance = new Program();
-        instance.Main();
-        return 0;
+        var extension = Path.GetExtension(file);
+
+        if (extension == ".dll")
+            LoadLibrary(file);
+        else if (extension == ".txt")
+        {
+            var path = File.ReadAllText(file);
+            LoadLibrary(path);
+        }
     }
 
-    void Main()
-    {
-        File.WriteAllText(@"C:\d.txt", DateTime.Now.ToString());
-        Console.WriteLine("Injected!");
-    }
+    // LoadFrom is necessary, LoadFile doesn't work in this context
+    void LoadLibrary(string path) => Assembly.LoadFrom(path);
 }

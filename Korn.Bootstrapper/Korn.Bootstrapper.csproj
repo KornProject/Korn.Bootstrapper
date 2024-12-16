@@ -4,8 +4,16 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<OutputType>WinExe</OutputType>
+	<Platforms>x64</Platforms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Korn.Logger\Korn.Logger\Korn.Logger.csproj" />
+    <ProjectReference Include="..\..\Korn.Plugins.Core\Korn.Plugins.Core\Korn.Plugins.Core.csproj" />
+    <ProjectReference Include="..\..\Korn.Plugins.ExternalInterface\Korn.Plugins.ExternalInterface\Korn.Plugins.ExternalInterface.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.System\Korn.Utils.System\Korn.Utils.System.csproj" />
+  </ItemGroup>
 
 </Project>
