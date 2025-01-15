@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Bootstrapper.netcore",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNetframeworkLibrary", "TestNetframeworkLibrary\TestNetframeworkLibrary.csproj", "{7B449A91-78E9-42A0-890B-6012B081692C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".net 8", ".net 8", "{A8EA1DC5-7CAD-4CB0-B900-3E4B81258FC7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".net", ".net", "{A8EA1DC5-7CAD-4CB0-B900-3E4B81258FC7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".netframework 4.7.2", ".netframework 4.7.2", "{C1C987F3-E428-4C98-82C6-AEE2AAF54AB8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".netframework", ".netframework", "{C1C987F3-E428-4C98-82C6-AEE2AAF54AB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Korn", "Korn", "{E1C1916E-8AAF-4BC1-8650-9EC5583E7000}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Plugins.Core", "..\Korn.Plugins.Core\Korn.Plugins.Core\Korn.Plugins.Core.csproj", "{0F6D2187-5F31-4D1C-A940-FACE89FE070D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Plugins.ExternalInterface", "..\Korn.Plugins.ExternalInterface\Korn.Plugins.ExternalInterface\Korn.Plugins.ExternalInterface.csproj", "{C7BE4021-0F57-4287-ACB4-73737835C633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,14 @@ Global
 		{C7BE4021-0F57-4287-ACB4-73737835C633}.Release|Any CPU.Build.0 = Release|x64
 		{C7BE4021-0F57-4287-ACB4-73737835C633}.Release|x64.ActiveCfg = Release|x64
 		{C7BE4021-0F57-4287-ACB4-73737835C633}.Release|x64.Build.0 = Release|x64
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Debug|x64.Build.0 = Debug|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Release|x64.ActiveCfg = Release|Any CPU
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,5 +110,6 @@ Global
 		{6D66A3C3-608D-454F-9E73-28427F239DF8} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
 		{0F6D2187-5F31-4D1C-A940-FACE89FE070D} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
 		{C7BE4021-0F57-4287-ACB4-73737835C633} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
+		{D2EE4A17-75B1-4778-BE02-FFB7888A45D8} = {C1C987F3-E428-4C98-82C6-AEE2AAF54AB8}
 	EndGlobalSection
 EndGlobal
