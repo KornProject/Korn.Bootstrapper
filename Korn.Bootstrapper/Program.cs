@@ -1,41 +1,55 @@
 ﻿/*
- *  IMPORTANT.
- *  DO NOT USE OTHER KORN COMPONENTS IN THIS CLASS.
+ *  IMPORTANT
+ *  DO NOT USE OTHER KORN COMPONENTS IN Program AND Program2 CLASSES
 */
 
+using Korn.Bootstrapper;
 using Korn.Shared;
+using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Threading;
 
-namespace Korn.Bootstrapper
+class Program
 {
-    class Program
+    const string NewtonsoftAssemblyName = "Newtonsoft.Json";
+    const string NewtonsoftFileName = NewtonsoftAssemblyName + ".dll";
+    const string NewtonsoftPath = Korn.Interface.Bootstrapper.BinDirectory + "\\" + KornShared.CurrentTargetVersion + "\\" + NewtonsoftFileName;
+
+    static void Main()
     {
-        static void Main()
+        var assemblyLoader = new AssemblyLoader();
+
+        AddAssemblyResolver();
+        LoadNewtonsoftJson();
+        Program2.Main(assemblyLoader);
+        Thread.Sleep(int.MaxValue); // otherwise it crashes 🥺
+
+        void AddAssemblyResolver()
         {
-            LoadSharedLibraries();
-            new EntryPoint().Main();
+            AppDomain.CurrentDomain.AssemblyResolve += Handler;
 
-            void LoadSharedLibraries()
+            Assembly Handler(object sender, ResolveEventArgs args)
             {
-                var librariesPath = Path.Combine(Korn.Interface.ServiceModule.Libraries, BootstrapperEnv.TargetVersion);
-                var files = Directory.GetFiles(librariesPath);
-                foreach (var file in files)
-                {
-                    var extension = Path.GetExtension(file);
-
-                    if (extension == ".dll")
-                        LoadLibrary(file);
-                    else if (extension == ".txt")
-                    {
-                        var path = File.ReadAllText(file);
-                        LoadLibrary(path);
-                    }
-                }
-
-                // LoadFrom is necessary, LoadFile doesn't work in this context
-                void LoadLibrary(string path) => Assembly.LoadFrom(path);
+                var name = args.Name.Split(',')[0];
+                var assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.GetName().Name == name);
+                return assembly;
             }
+        }
+
+        void LoadNewtonsoftJson()
+        {
+            if (IsAssemblyAlreadyLoaded())
+                return;
+
+            var path = NewtonsoftPath;
+            if (!File.Exists(path))
+                throw new FileNotFoundException($"Korn.Bootstrapper.Program->Main: The newtonsoft json library not found", path);
+
+            assemblyLoader.LoadFrom(path);
+
+            bool IsAssemblyAlreadyLoaded() => AppDomain.CurrentDomain.GetAssemblies().Any(assembly => assembly.GetName().Name == NewtonsoftAssemblyName);
         }
     }
 }
