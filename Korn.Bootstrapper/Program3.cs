@@ -73,7 +73,7 @@ class Program3
         {
             var currentProcess = Process.GetCurrentProcess();
 
-            var plugins = Korn.Interface.ServiceModule.Plugins.GetPluginsNames();
+            var plugins = Korn.Interface.Plugins.GetPluginsNames();
 
             foreach (var plugin in plugins)
                 CoreEnv.PluginLoader.LoadPlugin(plugin);                

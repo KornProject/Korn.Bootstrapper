@@ -6,8 +6,8 @@ using System.IO;
 class Program2
 {
     public const string CurrentTargetVersion = Korn.Shared.Internal.KornSharedInternal.CurrentTargetVersion;
-    public const string LibrariesListFile = Korn.Interface.ServiceModule.Libraries.LibrariesListFile;
-    public const string LibrariesDirectory = Korn.Interface.ServiceModule.Libraries.LibrariesDirectory;
+    public const string LibrariesListFile = Korn.Interface.Libraries.LibrariesListFile;
+    public const string LibrariesDirectory = Korn.Interface.Libraries.LibrariesDirectory;
 
     public static void Main(AssemblyLoader assemblyLoader)
     {
