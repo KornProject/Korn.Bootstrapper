@@ -9,6 +9,8 @@ namespace Korn.Bootstrapper
         public AssemblyLoader()
         {
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+            AddAlreadyLoaded();
         }
 
         Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
@@ -18,22 +20,31 @@ namespace Korn.Bootstrapper
             return result;
         }
 
-        public readonly List<Assembly> LoadedAssemblies = new List<Assembly>();
+        public readonly List<Assembly> UserLoadedAssemblies = new List<Assembly>();
         public readonly Dictionary<int, Assembly> HashedAssemblies = new Dictionary<int, Assembly>();
 
-        public void LoadFrom(string path)
+        public Assembly LoadFrom(string path)
         {
             var assembly = Assembly.LoadFrom(path);
-            Load(assembly);
+            UserLoadedAssemblies.Add(assembly);
+            return assembly;
         }
 
-        public void Load(Assembly assembly)
-        {
-            LoadedAssemblies.Add(assembly);
+        public bool IsLoaded(string name) => HashedAssemblies.ContainsKey(name.GetHashCode());
 
+        void AddAlreadyLoaded()
+        {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assembly in assemblies)
+                AddAssembly(assembly);
+        }
+
+        void AddAssembly(Assembly assembly)
+        {
             var name = assembly.GetName().Name;
             var hash = name.GetHashCode();
-            HashedAssemblies.Add(hash, assembly);
+            if (!HashedAssemblies.ContainsKey(hash))
+                HashedAssemblies.Add(hash, assembly);
         }
     }
 }

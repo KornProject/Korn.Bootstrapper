@@ -7,9 +7,19 @@
 	<Platforms>x64</Platforms>
   </PropertyGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(TargetFramework)' == 'net8.0-windows'">
+	<Delete Files="$(OutputPath)$(AssemblyName).exe" />
+	<Move SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFiles="$(OutputPath)$(AssemblyName).exe" />
+  </Target>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Korn.Core\Korn.Core\Korn.Core.csproj" />
+    <ProjectReference Include="..\..\Korn.Hooking\Korn.Hooking\Korn.Hooking.csproj" />
     <ProjectReference Include="..\..\Korn.Plugins.Core\Korn.Plugins.Core\Korn.Plugins.Core.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.Algorithms\Korn.Utils.Algorithms\Korn.Utils.Algorithms.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.Assembler\Korn.Utils.Assembler\Korn.Utils.Assembler.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.Memory\Korn.Utils.Memory\Korn.Utils.Memory.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.System\Korn.Utils.System\Korn.Utils.System.csproj" />
   </ItemGroup>
 
 </Project>

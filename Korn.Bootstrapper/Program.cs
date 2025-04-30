@@ -1,28 +1,32 @@
 ﻿/*
  *  IMPORTANT
- *  DO NOT USE OTHER KORN COMPONENTS IN Program AND Program2 CLASSES
+ *  DO NOT USE OTHER KORN COMPONENTS IN Program
 */
 
 using Korn.Bootstrapper;
-using Korn.Shared;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 class Program
 {
-    const string NewtonsoftAssemblyName = "Newtonsoft.Json";
-    const string NewtonsoftFileName = NewtonsoftAssemblyName + ".dll";
-    const string NewtonsoftPath = Korn.Interface.Bootstrapper.BinDirectory + "\\" + KornShared.CurrentTargetVersion + "\\" + NewtonsoftFileName;
+    const string WorkingDirectory = Korn.Interface.Bootstrapper.BinDirectory + "\\" + Korn.Shared.KornShared.CurrentTargetVersion;
+
+    [DllImport("user32.dll")]
+    public static extern int MessageBox(IntPtr hWnd, String text, String caption, int options);
 
     static void Main()
     {
+        MessageBox(IntPtr.Zero, "123", "123", 0);
+        return;
+
         var assemblyLoader = new AssemblyLoader();
 
         AddAssemblyResolver();
-        LoadNewtonsoftJson();
+        LoadLibraries();
         Program2.Main(assemblyLoader);
         Thread.Sleep(int.MaxValue); // otherwise it crashes 🥺
 
@@ -38,18 +42,19 @@ class Program
             }
         }
 
-        void LoadNewtonsoftJson()
+        void LoadLibraries()
         {
-            if (IsAssemblyAlreadyLoaded())
-                return;
+            string[] libraryExtensions = new string[] { ".dll", ".exe" };
 
-            var path = NewtonsoftPath;
-            if (!File.Exists(path))
-                throw new FileNotFoundException($"Korn.Bootstrapper.Program->Main: The newtonsoft json library not found", path);
+            var files = Directory.GetFiles(WorkingDirectory).Where(file => libraryExtensions.Contains(Path.GetExtension(file)));
+            foreach (var file in files)
+            {
+                var assemblyName = Path.GetFileNameWithoutExtension(file);
+                if (assemblyLoader.IsLoaded(assemblyName))
+                    continue;
 
-            assemblyLoader.LoadFrom(path);
-
-            bool IsAssemblyAlreadyLoaded() => AppDomain.CurrentDomain.GetAssemblies().Any(assembly => assembly.GetName().Name == NewtonsoftAssemblyName);
+                assemblyLoader.LoadFrom(file);
+            }
         }
     }
 }
