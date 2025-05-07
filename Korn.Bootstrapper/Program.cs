@@ -8,27 +8,20 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Threading;
 
 class Program
 {
     const string WorkingDirectory = Korn.Interface.Bootstrapper.BinDirectory + "\\" + Korn.Shared.KornShared.CurrentTargetVersion;
 
-    [DllImport("user32.dll")]
-    public static extern int MessageBox(IntPtr hWnd, String text, String caption, int options);
-
     static void Main()
     {
-        MessageBox(IntPtr.Zero, "123", "123", 0);
-        return;
-
         var assemblyLoader = new AssemblyLoader();
 
         AddAssemblyResolver();
         LoadLibraries();
         Program2.Main(assemblyLoader);
-        Thread.Sleep(int.MaxValue); // otherwise it crashes 🥺
+        Thread.Sleep(int.MaxValue);
 
         void AddAssemblyResolver()
         {

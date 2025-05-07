@@ -5,6 +5,7 @@ using Korn.Shared;
 using System;
 using Korn;
 
+#pragma warning disable CS0028 // {type} has the wrong signature to be an entry point
 class Program2
 {
     public static void Main(AssemblyLoader assemblyLoader)
