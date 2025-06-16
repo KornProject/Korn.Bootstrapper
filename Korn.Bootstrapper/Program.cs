@@ -16,6 +16,9 @@ class Program
 
     static void Main()
     {
+        Thread.Sleep(30000);
+        //Thread.Sleep(-1);
+
         var assemblyLoader = new AssemblyLoader();
 
         AddAssemblyResolver();

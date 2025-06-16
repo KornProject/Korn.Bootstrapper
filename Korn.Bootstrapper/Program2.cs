@@ -1,9 +1,9 @@
-﻿using System.Diagnostics;
-using Korn.Plugins.Core;
+﻿using Korn.Plugins.Core;
 using Korn.Bootstrapper;
 using Korn.Shared;
 using System;
 using Korn;
+using Korn.Utils;
 
 #pragma warning disable CS0028 // {type} has the wrong signature to be an entry point
 class Program2
@@ -22,20 +22,20 @@ class Program2
             KornShared.Logger.Exception(ex);
         }
 
+        Process.Current.FastResume();
+
         void InitializeBootstrapperEnv()
         {
-            var process = Process.GetCurrentProcess();
+            var process = Process.Current;
 
             BootstrapperEnv.Logger = new KornLogger(Korn.Interface.Bootstrapper.LogFile);
-            BootstrapperEnv.Logger.WriteMessage($"Bootstrapper started in \"{process.ProcessName}\"({process.Id})");
+            BootstrapperEnv.Logger.WriteMessage($"Bootstrapper started in \"{process.Name}\"({process.ID})");
 
             BootstrapperEnv.AssemblyLoader = assemblyLoader;
         }
 
         void InitializeCoreEnv()
         {
-            CoreEnv.CurrentProcess = Process.GetCurrentProcess();
-
             CoreEnv.Logger = BootstrapperEnv.Logger;
 
             CoreEnv.PluginLoader = new PluginLoader();
@@ -43,8 +43,6 @@ class Program2
 
         void InitializePlugins()
         {
-            var currentProcess = Process.GetCurrentProcess();
-
             var plugins = Korn.Interface.Plugins.GetPluginsNames();
 
             foreach (var plugin in plugins)

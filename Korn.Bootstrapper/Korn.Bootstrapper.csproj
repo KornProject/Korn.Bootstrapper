@@ -15,10 +15,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Korn.Core\Korn.Core\Korn.Core.csproj" />
     <ProjectReference Include="..\..\Korn.Hooking\Korn.Hooking\Korn.Hooking.csproj" />
+    <ProjectReference Include="..\..\Korn.Modules.Com\Korn.Modules.Com\Korn.Modules.Com.csproj" Condition="'$(TargetFramework)' == 'net8.0-windows'" />
     <ProjectReference Include="..\..\Korn.Plugins.Core\Korn.Plugins.Core\Korn.Plugins.Core.csproj" />
     <ProjectReference Include="..\..\Korn.Utils.Algorithms\Korn.Utils.Algorithms\Korn.Utils.Algorithms.csproj" />
     <ProjectReference Include="..\..\Korn.Utils.Assembler\Korn.Utils.Assembler\Korn.Utils.Assembler.csproj" />
     <ProjectReference Include="..\..\Korn.Utils.Memory\Korn.Utils.Memory\Korn.Utils.Memory.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.PEImageReader\Korn.Utils.PEImageReader\Korn.Utils.PEImageReader.csproj" />
+    <ProjectReference Include="..\..\Korn.Utils.Process\Korn.Utils.Process\Korn.Utils.Process.csproj" />
     <ProjectReference Include="..\..\Korn.Utils.System\Korn.Utils.System\Korn.Utils.System.csproj" />
   </ItemGroup>
 

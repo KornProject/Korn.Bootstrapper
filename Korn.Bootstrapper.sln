@@ -21,6 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Utils.Memory", "..\Kor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Utils.System", "..\Korn.Utils.System\Korn.Utils.System\Korn.Utils.System.csproj", "{75F43080-42FA-4DAB-8D4B-725E1C0B6DD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Utils.Process", "..\Korn.Utils.Process\Korn.Utils.Process\Korn.Utils.Process.csproj", "{B56BB8B8-3DEE-46EA-B0F9-01AC82B8D3A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Utils.PEImageReader", "..\Korn.Utils.PEImageReader\Korn.Utils.PEImageReader\Korn.Utils.PEImageReader.csproj", "{545E263F-414A-4344-BC82-921CBE66C144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Modules.Com", "..\Korn.Modules.Com\Korn.Modules.Com\Korn.Modules.Com.csproj", "{C755ACAD-FDB2-44C4-B00E-0F50E53FE202}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -42,6 +48,12 @@ Global
 		{2663F085-C1FB-4FC5-A7A9-CCDF87B4262A}.Debug|x64.Build.0 = Debug|x64
 		{75F43080-42FA-4DAB-8D4B-725E1C0B6DD0}.Debug|x64.ActiveCfg = Debug|x64
 		{75F43080-42FA-4DAB-8D4B-725E1C0B6DD0}.Debug|x64.Build.0 = Debug|x64
+		{B56BB8B8-3DEE-46EA-B0F9-01AC82B8D3A5}.Debug|x64.ActiveCfg = Debug|x64
+		{B56BB8B8-3DEE-46EA-B0F9-01AC82B8D3A5}.Debug|x64.Build.0 = Debug|x64
+		{545E263F-414A-4344-BC82-921CBE66C144}.Debug|x64.ActiveCfg = Debug|x64
+		{545E263F-414A-4344-BC82-921CBE66C144}.Debug|x64.Build.0 = Debug|x64
+		{C755ACAD-FDB2-44C4-B00E-0F50E53FE202}.Debug|x64.ActiveCfg = Debug|x64
+		{C755ACAD-FDB2-44C4-B00E-0F50E53FE202}.Debug|x64.Build.0 = Debug|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +66,8 @@ Global
 		{CBEC12CC-AA1F-43BD-B6F7-E2EF33E4BD79} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
 		{2663F085-C1FB-4FC5-A7A9-CCDF87B4262A} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
 		{75F43080-42FA-4DAB-8D4B-725E1C0B6DD0} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
+		{B56BB8B8-3DEE-46EA-B0F9-01AC82B8D3A5} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
+		{545E263F-414A-4344-BC82-921CBE66C144} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
+		{C755ACAD-FDB2-44C4-B00E-0F50E53FE202} = {E1C1916E-8AAF-4BC1-8650-9EC5583E7000}
 	EndGlobalSection
 EndGlobal
