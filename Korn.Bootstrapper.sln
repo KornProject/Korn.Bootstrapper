@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Plugins.Core", "..\Kor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Core", "..\Korn.Core\Korn.Core\Korn.Core.csproj", "{52EBE097-8D08-4AF8-A480-01B774CD623A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Utils.Algorithms", "..\Korn.Utils.Algorithms\Korn.Utils.Algorithms\Korn.Utils.Algorithms.csproj", "{BE5B7F72-1C2F-4422-97AE-4CFAE1530CAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Modules.Algorithms", "..\Korn.Modules.Algorithms\Korn.Modules.Algorithms\Korn.Modules.Algorithms.csproj", "{BE5B7F72-1C2F-4422-97AE-4CFAE1530CAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Utils.Assembler", "..\Korn.Utils.Assembler\Korn.Utils.Assembler\Korn.Utils.Assembler.csproj", "{DA0CB918-936D-4D09-A568-DFF95DA75BCE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Modules.Assembler", "..\Korn.Modules.Assembler\Korn.Modules.Assembler\Korn.Modules.Assembler.csproj", "{DA0CB918-936D-4D09-A568-DFF95DA75BCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Korn.Hooking", "..\Korn.Hooking\Korn.Hooking\Korn.Hooking.csproj", "{CBEC12CC-AA1F-43BD-B6F7-E2EF33E4BD79}"
 EndProject
