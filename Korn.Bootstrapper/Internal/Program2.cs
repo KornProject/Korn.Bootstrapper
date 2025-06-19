@@ -4,6 +4,7 @@ using Korn.Shared;
 using System;
 using Korn;
 using Korn.Utils;
+using Korn.Logger;
 
 #pragma warning disable CS0028 // {type} has the wrong signature to be an entry point
 class Program2

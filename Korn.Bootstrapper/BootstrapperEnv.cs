@@ -1,4 +1,5 @@
-﻿using Korn.Plugins.Core;
+﻿using Korn.Logger;
+using Korn.Plugins.Core;
 
 namespace Korn.Bootstrapper
 {
